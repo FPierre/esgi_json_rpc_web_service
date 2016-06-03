@@ -1,4 +1,4 @@
-# esgi_xml_rpc_web_service
+# esgi_json_rpc_web_service
 
 Lancer le serveur
 
