@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 require 'awesome_print'
 require 'json'
 require 'net/http'
@@ -8,10 +9,12 @@ require 'xmlrpc/server'
 server = XMLRPC::Server.new 1234
 
 # http://www.latlong.net/
-# Los Angeles 34.052234 -118.243685
+# Los Angeles : 34.052234 -118.243685
 
 # Handler de reverse géolocalisation
+# Lat/lon en ville + pays
 server.add_handler('rpc_webservice.lat_lon_info') do |lat, lon|
+  # Utilisation de la gem Geocoder en local plutôt que par API
   city_info = JSON.parse %x(geocode -j #{lat}, #{lon})
 
   Hash[
